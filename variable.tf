@@ -10,8 +10,14 @@ variable "EC2_USER" {
   default = "ec2-user"
 }
 
-variable "number_of_fe_servers" {
-  description = "Number of frontend EC2 instances"
+variable "server_port" {
+  description = "The port the server will use for HTTP requests"
   type        = number
-  default     = 2
+  default     = 80
+}
+
+variable "elb_port" {
+  description = "The port the ELB will use for HTTP requests"
+  type        = number
+  default     = 80
 }
