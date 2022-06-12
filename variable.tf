@@ -1,6 +1,6 @@
-variable "PRIVATE_KEY_PATH" {
-  default = "helecloud-aws-key"
-}
+# variable "PRIVATE_KEY_PATH" {
+#   default = "helecloud-aws-key"
+# }
 
 variable "PUBLIC_KEY_PATH" {
   default = "helecloud-aws-key.pub"
