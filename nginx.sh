@@ -1,11 +1,8 @@
 #!/bin/bash
-# sleep until instance is ready
-until [[ -f /var/lib/cloud/instance/boot-finished ]]; do
-  sleep 10
-done
+
+# update repos
+sudo yum update -y
 # install nginx
-#yum -y upgrade
-#yum -y install nginx1
-amazon-linux-extras install nginx1 -y
-# make sure nginx is started
-service nginx start
+sudo amazon-linux-extras install nginx1 -y
+# start nginx service
+sudo systemctl start nginx

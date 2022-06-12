@@ -117,25 +117,7 @@ resource "aws_instance" "fe_server" {
   subnet_id = aws_subnet.helecloud-prod-subnet-public-1.id
   vpc_security_group_ids = ["${aws_security_group.ssh-http-allowed.id}"]
   key_name = aws_key_pair.aws-key.id
-
-  provisioner "file" {
-    source      = "nginx.sh"
-    destination = "/tmp/nginx.sh"
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "chmod +x /tmp/nginx.sh",
-      "sudo /tmp/nginx.sh"
-    ]
-  }
-  
-  connection {
-    type        = "ssh"
-    host        = self.public_ip
-    user        = "ec2-user"
-    private_key = file("${var.PRIVATE_KEY_PATH}")
-  }
+  user_data = file("${path.module}/nginx.sh")
 
   tags = {
     Name = "fe_server_${count.index + 1}"
