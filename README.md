@@ -1,7 +1,7 @@
 # helecloud_test  
 
-Time sheet:
-Date		-	T	-	RT	-	Description of progress
+Time sheet:  
+Date		-	T	-	RT	-	Description of progress  
 8/6/22	-	1h	-	1h	-	Setup local environment with tfenv/tf/awscli - Base setup for creation of EC2 in my default VPC & subnet, with remote state storage in S3
 9/6/22	-	2h	-	3h	-	keys/vpc/subnet/sg/igw/routing/instances with count/basic efs - all working apart from provisioner which works for only the first instance and fails with i/o timeout on subsequent
 10/6/22	-	2h	-	5h	-	Fixed provisioner by replacing with a user_data to run the shell script - Working now, pain.
